@@ -1,20 +1,37 @@
 var Hapi = require('hapi');
+var Path = require('path');
 var Good = require('good');
 
 var server = new Hapi.Server();
 
 server.connection({port: 3000});
 
+server.views({
+    engines: {
+        html: require('handlebars')
+    },
+    relativeTo: __dirname,
+    path: './views'
+});
+
+server.route({
+    path: "/views/{path*}",
+    method: "GET",
+    handler: {
+        directory: {
+            path: Path.join(__dirname, 'views'),
+            listing: false,
+            index: false
+        }
+    }
+});
+
 server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        reply('Hello, world!');
+        reply.view('index', {title: 'ChatApp'});
     }
-});
-
-server.start(function () {
-    console.log('Server running at:', server.info.uri);
 });
 
 server.register({

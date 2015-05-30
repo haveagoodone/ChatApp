@@ -11,6 +11,7 @@
   "dependencies": {
     "good": "^6.1.4",
     "good-console": "^5.0.1",
+    "handlebars": "^3.0.3",
     "hapi": "^8.6.0"
   }
 }
