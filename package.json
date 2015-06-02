@@ -12,6 +12,11 @@
     "good": "^6.1.4",
     "good-console": "^5.0.1",
     "handlebars": "^3.0.3",
-    "hapi": "^8.6.0"
+    "hapi": "^8.6.0",
+    "socket.io": "automattic/socket.io"
+  },
+  "devDependencies": {
+    "node-libs-browser": "^0.5.2",
+    "webpack": "^1.9.10"
   }
 }

@@ -2,10 +2,38 @@ var Hapi = require('hapi');
 var Path = require('path');
 var Good = require('good');
 
+
+/*
+ * Hapi Server setup
+ */
 var server = new Hapi.Server();
 
 server.connection({port: 3000});
 
+
+/*
+ * Socket.io
+ */
+var io = require('socket.io')(server.listener);
+
+io.on('connection', function (socket) {
+
+    /*
+     * listen for new messages and send them back to the clients
+     */
+    socket.on('new:chat:message', function (message) {
+
+        socket.broadcast.emit('add:chat:message', {
+            message: message
+        });
+    });
+
+});
+
+
+/*
+ * Hapi View
+ */
 server.views({
     engines: {
         html: require('handlebars')
@@ -14,12 +42,28 @@ server.views({
     path: './views'
 });
 
+
+/*
+ * Server Routes
+ */
 server.route({
     path: "/views/{path*}",
     method: "GET",
     handler: {
         directory: {
             path: Path.join(__dirname, 'views'),
+            listing: false,
+            index: false
+        }
+    }
+});
+
+server.route({
+    path: "/dist/{path*}",
+    method: "GET",
+    handler: {
+        directory: {
+            path: Path.join(__dirname, 'dist'),
             listing: false,
             index: false
         }
@@ -34,6 +78,10 @@ server.route({
     }
 });
 
+
+/*
+ * Use Hapi Plug-in
+ */
 server.register({
     register: Good,
     options: {
