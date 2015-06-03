@@ -54,6 +54,8 @@ window.onload = function () {
         var $listItem = _buildHtml('li', {'class': 'listitem'}, $content);
 
         $messageList.append($listItem);
+
+        $messageList[0].scrollTop = $messageList[0].scrollHeight;
     }
 
 

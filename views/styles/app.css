@@ -1,0 +1,47 @@
+/* header */
+nav {
+    margin-top: 30px;
+}
+
+.nav__title {
+    font-size: 28px;
+}
+
+
+/* message list */
+.message-list__row {
+    margin-bottom: 0;
+}
+
+.card .card-content {
+    padding: 5px 10px;
+}
+
+ul {
+    height: 220px;
+    overflow: auto;
+    margin: 5px 0;
+
+}
+
+.message {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.username:after {
+    content: ':';
+}
+
+/* footer */
+.username__row {
+    margin-bottom: 0;
+}
+
+.message__row {
+    margin-bottom: 0;
+}
