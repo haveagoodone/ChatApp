@@ -21,10 +21,11 @@ io.on('connection', function (socket) {
     /*
      * listen for new messages and send them back to the clients
      */
-    socket.on('new:chat:message', function (message) {
+    socket.on('new:chat:message', function (data) {
 
         socket.broadcast.emit('add:chat:message', {
-            message: message
+            message: data.message,
+            username: data.username
         });
     });
 
