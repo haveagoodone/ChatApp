@@ -1,0 +1,24 @@
+{
+  "name": "chatapp",
+  "version": "0.0.0",
+  "description": "A proof of concept for a chat application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "smueller",
+  "license": "MIT",
+  "dependencies": {
+    "good": "^6.1.4",
+    "good-console": "^5.0.1",
+    "handlebars": "^3.0.3",
+    "hapi": "^8.6.0",
+    "socket.io": "automattic/socket.io"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.5",
+    "node-libs-browser": "^0.5.2",
+    "webpack": "^1.9.10"
+  }
+}
