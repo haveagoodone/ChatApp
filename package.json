@@ -16,8 +16,6 @@
     "socket.io": "automattic/socket.io"
   },
   "devDependencies": {
-    "chai": "^2.3.0",
-    "mocha": "^2.2.5",
     "node-libs-browser": "^0.5.2",
     "webpack": "^1.9.10"
   }
